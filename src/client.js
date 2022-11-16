@@ -1,6 +1,8 @@
 'use strict';
 
 const { default: axios } = require('axios');
+// eslint-disable-next-line no-unused-vars
+const Model = require('./model');
 
 class LarkClient {
   constructor({ app_id, app_secret }) {
@@ -31,6 +33,26 @@ class LarkClient {
     return this.access_token;
   }
 
+  /**
+   * 
+   * @param {*} receive_id 
+   * @param {*} receive_id_type 
+   * @param {Model} card_message_model 
+   * @returns 
+   */
+  async sendCardMessage(card_message_model, receive_id, receive_id_type = 'chat_id') {
+    return await this.request(`https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=${receive_id_type}`, {
+      receive_id,
+      msg_type: 'interactive',
+      content: card_message_model.toJson()
+    });
+  }
+
+  /**
+   * @param {*} url 
+   * @param {*} data 
+   * @returns 
+   */
   async request(url, data) {
     const token = await this.token();
     return await axios.post(url, data, {
