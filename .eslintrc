@@ -49,12 +49,12 @@
     "no-undef-init": 2,
     "no-use-before-define": 2,
     "no-unused-vars": [
-      2,
+      1,
       {
         "args": "none"
       }
     ],
-    "no-undefined": 2,
+    "no-undefined": 1,
     "no-undef": 2,
     "global-require": 0,
     "no-console": 2,
