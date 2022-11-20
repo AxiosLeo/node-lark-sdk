@@ -34,7 +34,6 @@ class LarkClient {
   }
 
   /**
-   * 
    * @param {*} receive_id 
    * @param {*} receive_id_type 
    * @param {Model} card_message_model 
@@ -56,8 +55,10 @@ class LarkClient {
   async request(url, data) {
     const token = await this.token();
     return await axios.post(url, data, {
-      'Authorization': `Bearer ${token.app}`,
-      'Content-Type': 'application/json; charset=utf-8',
+      headers: {
+        'Authorization': `Bearer ${token.app}`,
+        'Content-Type': 'application/json; charset=utf-8',
+      }
     });
   }
 }
