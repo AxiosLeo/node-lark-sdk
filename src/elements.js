@@ -21,7 +21,7 @@ class PlainTextElement extends Element {
    * @param {string} content 
    * @param {Field[]} fields
    */
-  constructor(content, fields = [], lines = undefined) {
+  constructor(content, fields = [], lines) {
     super({
       tag: 'div',
       text: {

@@ -1,14 +1,16 @@
 'use strict';
 
-class Field {
+const Model = require('./model');
+
+class Field extends Model {
   constructor(content, tag, is_short = false) {
-    this.field = {
+    super({
       is_short,
       text: {
         tag,
         content
       }
-    };
+    });
   }
 }
 
@@ -25,6 +27,7 @@ class MarkdownField extends Field {
 }
 
 module.exports = {
+  Field,
   PlainTextField,
   MarkdownField
 };
