@@ -1,6 +1,6 @@
 {
   "name": "@axiosleo/lark-sdk",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1",
   "description": "Lark SDK for Node.js.",
   "keywords": [
     "lark",
